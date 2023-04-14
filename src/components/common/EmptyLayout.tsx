@@ -1,16 +1,10 @@
 import * as React from 'react';
-import { LayoutProps } from '~/src/interfaces/common';
+import {LayoutProps} from '~/src/interfaces/common';
 
+const EmptyLayout: React.FC<LayoutProps> = props => {
+  const {children} = props;
 
-
-const EmptyLayout: React.FC<LayoutProps> = (props) => {
-  const { children } = props;
-
-  return (
-    <>
-      children
-    </>
-  )
+  return <>{children}</>;
 };
 
 export default EmptyLayout;
