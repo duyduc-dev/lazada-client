@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import FormLogin from '~/src/components/auth/FormLogin/FormLogin';
-import MainLayout from '~/src/components/common/MainLayout';
+import MainLayout from '~/src/components/layouts/MainLayout';
 
 const Login = () => {
   const [values, setValues] = useState({

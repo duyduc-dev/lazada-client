@@ -19,7 +19,7 @@ function FormLogin() {
                     Số điện thoại hoặc email*
                   </label>
                   <input
-                    placeholder=""
+                    placeholder="123"
                     type="text"
                     className=" text-[14px] pl-2 w-full h-10 outline  outline-1 outline-[#c4b0b0] pr-[35px]"
                   />
