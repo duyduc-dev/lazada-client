@@ -162,6 +162,12 @@ module.exports = {
       fuchsia: colors.fuchsia,
       pink: colors.pink,
       rose: colors.rose,
+
+      anti_flash_white: '#eff0f5',
+      vivid_tangelo: '#f57224',
+      spanish_gray: '#9e9e9e',
+      cultured: '#f5f5f5',
+      sonic_silver: '#757575'
     }),
     columns: {
       auto: 'auto',
@@ -786,6 +792,7 @@ module.exports = {
       sm: '640px',
       md: '768px',
       lg: '1024px',
+      custom_lg: '1188px',
       xl: '1280px',
       '2xl': '1536px',
     },
