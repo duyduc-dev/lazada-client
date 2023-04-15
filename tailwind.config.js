@@ -172,7 +172,11 @@ module.exports = {
       sonic_silver: '#757575',
       silver_pink: '#c4b0b0',
       bondi_blue: '#049cb9',
-      coral_red: '#f44336'
+      coral_red: '#f44336',
+      bg_login_sign: '#eff0f5',
+      jasper_red: '#d34836',
+      facebook_color: '#3b5998',
+      sign_lazada: '#f57224',
     }),
     columns: {
       auto: 'auto',

@@ -67,7 +67,7 @@ function FormLogin() {
                 <div>
                   <button
                     type="submit"
-                    className="w-full justify-center bg-[#f57224] hover:bg-orange-600 text-white py-3 px-[7rem] border border-orange-500 rounded"
+                    className="w-full justify-center bg-sign_lazada hover:bg-orange-600 text-white py-3 px-[7rem] border border-orange-500 rounded"
                   >
                     Login
                   </button>
@@ -78,7 +78,7 @@ function FormLogin() {
                 <div className="pt-1 ">
                   <button
                     type="button"
-                    className="flex items-center gap-2 bg-[#3b5998] hover:bg-blue-700 text-white font-bold py-2 px-[7.5rem] border border-blue-800 rounded"
+                    className="flex items-center gap-2 bg-facebook_color hover:bg-blue-700 text-white font-bold py-2 px-[7.5rem] border border-blue-800 rounded"
                   >
                     <FaFacebookF />
                     <span>Facebook</span>
@@ -87,7 +87,7 @@ function FormLogin() {
                 <div className="pt-[0.75rem] ">
                   <button
                     type="button"
-                    className="flex items-center gap-2 bg-[#d34836] hover:bg-red-700 text-white font-bold py-2 px-[8rem] border border-red-600 rounded"
+                    className="flex items-center gap-2 bg-jasper_red hover:bg-red-700 text-white font-bold py-2 px-[8rem] border border-red-600 rounded"
                   >
                     <FaGooglePlusG />
                     <span>Google</span>

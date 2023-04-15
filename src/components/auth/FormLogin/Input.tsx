@@ -34,7 +34,7 @@ const Input: React.FC<InputProps> = (props) => {
           value={value}
           autoComplete={autoComplete}
           onChange={onChange}
-          type={type === 'password' ? (showPassword ? 'text' : 'password') : type === 'date' ? 'date' : type}
+          type={type === 'password' ? (showPassword ? 'text' : 'password') : type}
           className={classNames(
             'text-[14px] pl-2 w-full h-10 border border-silver_pink pr-[35px]',
             error && '!border-coral_red'

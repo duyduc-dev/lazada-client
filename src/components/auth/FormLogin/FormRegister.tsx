@@ -12,7 +12,7 @@ const handleGenderChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
   console.log(e.target.value);
 };
 
-const signUPSchema = Yup.object().shape({
+const signUpSchema = Yup.object().shape({
   name: Yup.string()
     .required("You can't leave this empty")
     .min(2, 'The name length should be 2 - 50 characters')
@@ -47,7 +47,7 @@ function FormRegister() {
       birthDate: '',
       checkbox: '',
     },
-    validationSchema: signUPSchema,
+    validationSchema: signUpSchema,
     validateOnMount: false,
     validateOnChange: false,
     onSubmit: (values) => {
@@ -55,7 +55,7 @@ function FormRegister() {
     },
   });
   return (
-    <div className="bg-[#eff0f5] container">
+    <div className="bg-bg_login_sign container">
       <div className="flex justify-center ">
         <div className="w-[810px] ">
           <div className="flex items-center justify-between pt-9 pb-9">
@@ -141,11 +141,11 @@ function FormRegister() {
                 </div>
                 <div className="text-xs text-sonic_silver w-[19rem] items-center my-5">
                   <span>
-                    By proceeding to sign up, I acknowledge that I have read and consented to Lazada’s{' '}
-                    <a className="no-underline text-blue_green">Terms of Use</a> and{' '}
-                    <a className="no-underline text-blue_green">Private Policy</a> , which sets out how Lazada
-                    collects, uses and discloses my personal data, and the rights that I have under applicable
-                    law.
+                    By proceeding to sign up, I acknowledge that I have read and consented to Lazada’s
+                    <a className="no-underline text-blue_green"> Terms of Use</a> and
+                    <a className="no-underline text-blue_green"> Private Policy</a> , which sets out how
+                    Lazada collects, uses and discloses my personal data, and the rights that I have under
+                    applicable law.
                   </span>
                 </div>
                 <div className="my-2 text-[12px] text-sonic_silver text-start block">
@@ -154,7 +154,7 @@ function FormRegister() {
                 <div className="pt-1 ">
                   <button
                     type="button"
-                    className="flex items-center gap-2 bg-[#3b5998] hover:bg-blue-700 text-white font-bold py-2 px-[7.5rem] border border-blue-800 rounded"
+                    className="flex items-center gap-2 bg-facebook_color hover:bg-blue-700 text-white font-bold py-2 px-[7.5rem] border border-blue-800 rounded"
                   >
                     <FaFacebookF />
                     <span>Facebook</span>
@@ -163,7 +163,7 @@ function FormRegister() {
                 <div className="pt-[0.75rem] ">
                   <button
                     type="button"
-                    className="flex items-center gap-2 bg-[#d34836] hover:bg-red-700 text-white font-bold py-2 px-[8rem] border border-red-600 rounded"
+                    className="flex items-center gap-2 bg-jasper_red hover:bg-red-700 text-white font-bold py-2 px-[8rem] border border-red-600 rounded"
                   >
                     <FaGooglePlusG />
                     <span>Google</span>
