@@ -26,7 +26,7 @@ function FormLogin() {
   });
 
   return (
-    <div className="bg-[#eff0f5]">
+    <div className="bg-[#eff0f5] container">
       <div className="flex justify-center ">
         <div className="w-[810px] ">
           <div className="flex items-center justify-between pt-9 pb-9">
@@ -59,7 +59,7 @@ function FormLogin() {
                 {...getFieldProps('password')}
               />
               <div className="flex justify-end">
-                <a className="text-xs text-bondi_blue">Quên mật khẩu ?</a>
+                <a className="text-xs text-bondi_blue">Forgot Password?</a>
               </div>
             </div>
             <div className="pt-[20px] w-full flex flex-col items-end">
@@ -67,18 +67,18 @@ function FormLogin() {
                 <div>
                   <button
                     type="submit"
-                    className="w-full justify-center bg-orange-500 hover:bg-orange-600 text-white py-3 px-[7rem] border border-orange-500 rounded"
+                    className="w-full justify-center bg-[#f57224] hover:bg-orange-600 text-white py-3 px-[7rem] border border-orange-500 rounded"
                   >
                     Login
                   </button>
                 </div>
                 <div className="my-2 text-[12px] text-sonic_silver text-start block">
-                  <span>or, Login with</span>
+                  <span>Or, Login with</span>
                 </div>
                 <div className="pt-1 ">
                   <button
                     type="button"
-                    className="flex items-center gap-2 bg-blue-800 hover:bg-blue-700 text-white font-bold py-2 px-[7.5rem] border border-blue-800 rounded"
+                    className="flex items-center gap-2 bg-[#3b5998] hover:bg-blue-700 text-white font-bold py-2 px-[7.5rem] border border-blue-800 rounded"
                   >
                     <FaFacebookF />
                     <span>Facebook</span>
@@ -87,7 +87,7 @@ function FormLogin() {
                 <div className="pt-[0.75rem] ">
                   <button
                     type="button"
-                    className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-[8rem] border border-red-600 rounded"
+                    className="flex items-center gap-2 bg-[#d34836] hover:bg-red-700 text-white font-bold py-2 px-[8rem] border border-red-600 rounded"
                   >
                     <FaGooglePlusG />
                     <span>Google</span>

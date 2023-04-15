@@ -8,7 +8,7 @@ interface InputProps {
   placeholder?: string;
   value?: string;
   error?: string;
-  type?: 'text' | 'password';
+  type?: 'text' | 'password' | 'date';
   name?: string;
   autoComplete?: 'on' | 'off';
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
@@ -25,6 +25,7 @@ const Input: React.FC<InputProps> = (props) => {
       <label htmlFor={id} className="top-0 mb-4 text-xs h-3.5 leading-4 font-[400]">
         {label}
       </label>
+
       <div className="relative">
         <input
           id={id}
@@ -33,12 +34,13 @@ const Input: React.FC<InputProps> = (props) => {
           value={value}
           autoComplete={autoComplete}
           onChange={onChange}
-          type={type === 'password' ? (showPassword ? 'text' : 'password') : type}
+          type={type === 'password' ? (showPassword ? 'text' : 'password') : type === 'date' ? 'date' : type}
           className={classNames(
             'text-[14px] pl-2 w-full h-10 border border-silver_pink pr-[35px]',
             error && '!border-coral_red'
           )}
         />
+
         {type === 'password' && (
           <button
             onClick={setShowPassword.toggle}
