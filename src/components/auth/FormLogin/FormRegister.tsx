@@ -45,7 +45,6 @@ function FormRegister() {
       name: '',
       gender: '',
       birthDate: '',
-      checkbox: '',
     },
     validationSchema: signUpSchema,
     validateOnMount: false,
@@ -55,7 +54,7 @@ function FormRegister() {
     },
   });
   return (
-    <div className="bg-bg_login_sign container">
+    <div className="container bg-bg_login_sign">
       <div className="flex justify-center ">
         <div className="w-[810px] ">
           <div className="flex items-center justify-between pt-9 pb-9">
@@ -111,7 +110,7 @@ function FormRegister() {
                 />
               </div>
             </div>
-            <div className="pt-0 w-full flex flex-col items-end">
+            <div className="flex flex-col items-end w-full pt-0">
               <div>
                 <div>
                   <Input
@@ -122,7 +121,7 @@ function FormRegister() {
                     {...getFieldProps('name')}
                   />
                 </div>
-                <div className="w-48 relative">
+                <div className="relative w-48">
                   <input className="border-x-white absolute top-[8px] " type="checkbox" />
                   <div className="w-[20rem] ml-3  block mb-4">
                     <span className="text-sonic_silver text-[12px] ml-1  ">
