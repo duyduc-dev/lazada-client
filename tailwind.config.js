@@ -162,6 +162,21 @@ module.exports = {
       fuchsia: colors.fuchsia,
       pink: colors.pink,
       rose: colors.rose,
+
+      blue_green: '#1a9cb7',
+      title_arsenic: '#424242',
+      anti_flash_white: '#eff0f5',
+      vivid_tangelo: '#f57224',
+      spanish_gray: '#9e9e9e',
+      cultured: '#f5f5f5',
+      sonic_silver: '#757575',
+      silver_pink: '#c4b0b0',
+      bondi_blue: '#049cb9',
+      coral_red: '#f44336',
+      bg_login_sign: '#eff0f5',
+      jasper_red: '#d34836',
+      facebook_color: '#3b5998',
+      sign_lazada: '#f57224',
     }),
     columns: {
       auto: 'auto',
@@ -786,6 +801,7 @@ module.exports = {
       sm: '640px',
       md: '768px',
       lg: '1024px',
+      custom_lg: '1188px',
       xl: '1280px',
       '2xl': '1536px',
     },
@@ -992,5 +1008,4 @@ module.exports = {
     },
   },
   plugins: [],
-}
-
+};
