@@ -9,7 +9,7 @@ interface SelectedProps {
   onChange: React.ChangeEventHandler<HTMLSelectElement>;
 }
 
-const Selected: React.FC<SelectedProps> = (props) => {
+const SelectGender: React.FC<SelectedProps> = (props) => {
   const { autoComplete = 'off', label, placeholder, value, onChange, error } = props;
   const [selectedValue, setSelectedValue] = React.useState(value);
 
@@ -46,4 +46,4 @@ const Selected: React.FC<SelectedProps> = (props) => {
   );
 };
 
-export default Selected;
+export default SelectGender;

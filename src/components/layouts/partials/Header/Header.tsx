@@ -1,14 +1,14 @@
 import Image from 'next/image';
 import * as React from 'react';
-import {GrSearch} from 'react-icons/gr';
+import { GrSearch } from 'react-icons/gr';
 import logoLazada from '~/assets/images/logo-lazada.png';
 import cartImg from '~/assets/images/cart.png';
 import Link from 'next/link';
-import {routes} from '~/src/utils/constants';
+import { routes } from '~/src/utils/constants';
 
 interface HeaderProps {}
 
-const Header: React.FC<HeaderProps> = props => {
+const Header: React.FC<HeaderProps> = (props) => {
   const {} = props;
   return (
     <header>
@@ -45,7 +45,9 @@ const Header: React.FC<HeaderProps> = props => {
             </div>
             <div>
               <div className="relative">
-                <Image src={cartImg.src} alt="" width={29} height={26} priority />
+                <Link href={routes.CART}>
+                  <Image src={cartImg.src} alt="" width={29} height={26} priority />
+                </Link>
               </div>
             </div>
           </div>

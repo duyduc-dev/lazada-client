@@ -2265,9 +2265,9 @@ supports-preserve-symlinks-flag@^1.0.0:
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
 
 swiper@^9.2.0:
-  version "9.2.0"
-  resolved "https://registry.yarnpkg.com/swiper/-/swiper-9.2.0.tgz#40e950b1c0d516403b3bf7083560ebac22a6f325"
-  integrity sha512-lWK9toYumUQss+YuTL+Mt0+8twiMJEyzioER4bbS4rrGHlkeLrDM8uhtAmnpdijELrNscuNUujDgKoMQZfQGlQ==
+  version "9.2.2"
+  resolved "https://registry.yarnpkg.com/swiper/-/swiper-9.2.2.tgz#5e385e43be73c60f27508e58077908003aed11fc"
+  integrity sha512-rXicgpm8XRziyZ6TZ4NnZNb6FrhDH0M7X16WoHyzDp5HNHqXGe2BMXBQhfDDGUfhWcSIqeGSvPL9bQzK7Qr+dw==
   dependencies:
     ssr-window "^4.0.2"
 
@@ -2522,9 +2522,9 @@ yocto-queue@^0.1.0:
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
 yup@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/yup/-/yup-1.1.0.tgz#9e2439156970410f13c0aa842379c3a7240127ca"
-  integrity sha512-CtpEHWiIMwWJBJ+zX8xWImXXdvJ10X/sKkYYTXfVocHj087e9zhP0GNkU7HlXBBI4T9BtHQxs8n2jLzmo/X8Yg==
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/yup/-/yup-1.1.1.tgz#49dbcf5ae7693ed0a36ed08a9e9de0a09ac18e6b"
+  integrity sha512-KfCGHdAErqFZWA5tZf7upSUnGKuTOnsI3hUsLr7fgVtx+DK04NPV01A68/FslI4t3s/ZWpvXJmgXhd7q6ICnag==
   dependencies:
     property-expr "^2.0.5"
     tiny-case "^1.0.3"

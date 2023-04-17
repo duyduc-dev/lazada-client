@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import Link from 'next/link';
 import Input from './Input';
 import * as Yup from 'yup';
@@ -11,7 +10,6 @@ import { SignUpModel } from '~/src/interfaces/auth';
 const handleGenderChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
   console.log(e.target.value);
 };
-
 const signUpSchema = Yup.object().shape({
   name: Yup.string()
     .required("You can't leave this empty")
@@ -45,6 +43,7 @@ function FormRegister() {
       name: '',
       gender: '',
       birthDate: '',
+      checkbox: '',
     },
     validationSchema: signUpSchema,
     validateOnMount: false,
@@ -54,7 +53,7 @@ function FormRegister() {
     },
   });
   return (
-    <div className="container bg-bg_login_sign">
+    <div className="bg-bg_login_sign container">
       <div className="flex justify-center ">
         <div className="w-[810px] ">
           <div className="flex items-center justify-between pt-9 pb-9">
@@ -110,7 +109,7 @@ function FormRegister() {
                 />
               </div>
             </div>
-            <div className="flex flex-col items-end w-full pt-0">
+            <div className="pt-0 w-full flex flex-col items-end">
               <div>
                 <div>
                   <Input
@@ -121,11 +120,11 @@ function FormRegister() {
                     {...getFieldProps('name')}
                   />
                 </div>
-                <div className="relative w-48">
+                <div className="w-48 relative">
                   <input className="border-x-white absolute top-[8px] " type="checkbox" />
                   <div className="w-[20rem] ml-3  block mb-4">
                     <span className="text-sonic_silver text-[12px] ml-1  ">
-                      I'd like to receive exclusive offers and promotions via email
+                      I&lsquo;d like to receive exclusive offers and promotions via email
                     </span>
                   </div>
                 </div>

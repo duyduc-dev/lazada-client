@@ -17,6 +17,7 @@ export default function Home() {
             </div>
             <div className="w-[calc(1188px_-_250px)]">
               <CarouselSection />
+              
             </div>
           </div>
         </div>
