@@ -162,6 +162,7 @@ module.exports = {
       fuchsia: colors.fuchsia,
       pink: colors.pink,
       rose: colors.rose,
+
       blue_green: '#1a9cb7',
       title_arsenic: '#424242',
       anti_flash_white: '#eff0f5',
@@ -182,7 +183,6 @@ module.exports = {
       caribbean_green: '#11c296',
       water: '#d4f3eb',
       quick_silver: '#a0a0a0',
-      raisin_black: '#212121',
       nickel: '#727272'
     }),
     columns: {
