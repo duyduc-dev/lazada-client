@@ -1,13 +1,27 @@
+import { Toaster } from 'react-hot-toast';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import EmptyLayout from '~/src/components/layouts/EmptyLayout';
-import {AppPropsWithLayout} from '~/src/interfaces/common';
+import { AuthInit, AuthProvider } from '~/src/context/AuthContext';
+import { AppPropsWithLayout } from '~/src/interfaces/common';
 import '~/styles/globals.css';
 
-export default function App({Component, pageProps}: AppPropsWithLayout) {
+const queryClient = new QueryClient();
+
+export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const Layout = Component.Layout ?? EmptyLayout;
 
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <>
+      <QueryClientProvider client={queryClient}>
+        <AuthProvider>
+          <AuthInit>
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </AuthInit>
+        </AuthProvider>
+        <Toaster position="top-right" />
+      </QueryClientProvider>
+    </>
   );
 }

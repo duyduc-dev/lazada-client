@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -16,6 +16,53 @@ html {
 
 input {
   outline: none;
+}
+
+.animation-text {
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    color-stop(0, #17ca9d),
+    color-stop(0.4, #17ca9d),
+    color-stop(0.5, #fff),
+    color-stop(0.6, #17ca9d),
+    color-stop(1, #17ca9d)
+  );
+  -webkit-background-clip: text;
+  -webkit-animation: slidetounlock 3s infinite;
+  -webkit-text-fill-color: transparent;
+  color: #11c296 !important;
+  -webkit-text-size-adjust: none;
+  -webkit-box-shadow: none;
+}
+@keyframes slidetounlock {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: 200px 0;
+  }
+}
+
+#lzd-loader-spinner {
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transform-origin: center center;
+  transform-origin: center center;
+  -webkit-animation: rotate 0.6s linear infinite;
+  animation: rotate 0.6s linear infinite;
+  transform-box: fill-box;
+}
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(1turn);
+    transform: rotate(1turn);
+  }
 }
 
 html *::-webkit-scrollbar {
