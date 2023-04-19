@@ -1,23 +1,61 @@
 import Image from 'next/image';
 import * as React from 'react';
 import { GrSearch } from 'react-icons/gr';
+import Link from 'next/link';
+import { useBoolean } from 'hooks-react-custom';
 import logoLazada from '~/assets/images/logo-lazada.png';
 import cartImg from '~/assets/images/cart.png';
-import Link from 'next/link';
 import { routes } from '~/src/utils/constants';
+import { useAuth } from '~/src/context/AuthContext';
+import Tooltip from '~/src/components/Tooltip';
 
 interface HeaderProps {}
 
 const Header: React.FC<HeaderProps> = (props) => {
   const {} = props;
+
+  const { currentUser, logout } = useAuth();
+  const [showTooltipAccount, actionTooltip] = useBoolean();
+
+  const handleLogout = async () => {
+    await logout();
+  };
+
   return (
     <header>
-      <div className="h-[115px] ">
+      <div className="h-[115px]">
         <div className="bg-black/[0.03]">
           <div className=" h-[25px] max-w-screen-custom_lg mx-auto">
             <div className="uppercase justify-end font-[400] text-spanish_gray text-[12px] flex gap-2 items-center h-full">
-              <Link href={routes.LOGIN}>login</Link>
-              <Link href={routes.SIGN_UP}>signup</Link>
+              {currentUser ? (
+                <Tooltip
+                  interactive
+                  onClickOutside={actionTooltip.setFalse}
+                  visible={showTooltipAccount}
+                  placement="bottom"
+                  render={() => (
+                    <div className="p-4 rounded-md bg-white shadow-[rgba(149,157,165,0.2)_0px_8px_24px] min-w-[300px]">
+                      <div className="flex flex-col text-left">
+                        <button
+                          onClick={handleLogout}
+                          className="text-left px-4 hover:bg-[rgba(0,0,0,.03)] rounded-md py-2"
+                        >
+                          Sign out
+                        </button>
+                      </div>
+                    </div>
+                  )}
+                >
+                  <div onClick={actionTooltip.toggle} className="cursor-pointer select-none">
+                    {currentUser.fullName}
+                  </div>
+                </Tooltip>
+              ) : (
+                <>
+                  <Link href={routes.LOGIN}>login</Link>
+                  <Link href={routes.SIGN_UP}>signup</Link>
+                </>
+              )}
             </div>
           </div>
         </div>
