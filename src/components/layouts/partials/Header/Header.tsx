@@ -2,12 +2,12 @@ import Image from 'next/image';
 import * as React from 'react';
 import { GrSearch } from 'react-icons/gr';
 import Link from 'next/link';
+import { useBoolean } from 'hooks-react-custom';
 import logoLazada from '~/assets/images/logo-lazada.png';
 import cartImg from '~/assets/images/cart.png';
 import { routes } from '~/src/utils/constants';
 import { useAuth } from '~/src/context/AuthContext';
 import Tooltip from '~/src/components/Tooltip';
-import { useBoolean } from 'hooks-react-custom';
 
 interface HeaderProps {}
 
@@ -83,7 +83,9 @@ const Header: React.FC<HeaderProps> = (props) => {
             </div>
             <div>
               <div className="relative">
-                <Image src={cartImg.src} alt="" width={29} height={26} priority />
+                <Link href={routes.CART}>
+                  <Image src={cartImg.src} alt="" width={29} height={26} priority />
+                </Link>
               </div>
             </div>
           </div>

@@ -1,6 +1,6 @@
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
-import WrapCart from '~/src/components/cart/WrapCart';
+import WrapCart from '~/src/components/Cart/WrapCart';
 import MainLayout from '~/src/components/layouts/MainLayout';
 import CarouselSection from '~/src/components/modules/home/CarouselSection';
 import CategoriesTreeSection from '~/src/components/modules/home/CategoriesTreeSection';

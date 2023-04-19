@@ -86,7 +86,6 @@ const SignUp = () => {
       }
     },
   });
-  console.log(errors);
 
   const [showDragger, setShowDragger] = useBoolean(true);
   const [showPopup, setShowPopup] = useBoolean(false);
