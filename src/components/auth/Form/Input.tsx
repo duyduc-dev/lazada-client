@@ -11,11 +11,23 @@ interface InputProps {
   type?: 'text' | 'password' | 'date';
   name?: string;
   autoComplete?: 'on' | 'off';
+  renderHTMLOnInput?: () => React.ReactElement;
+
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
 
 const Input: React.FC<InputProps> = (props) => {
-  const { type = 'text', autoComplete = 'off', label, placeholder, name, value, error, onChange } = props;
+  const {
+    type = 'text',
+    autoComplete = 'off',
+    label,
+    placeholder,
+    name,
+    value,
+    error,
+    renderHTMLOnInput,
+    onChange,
+  } = props;
   const [showPassword, setShowPassword] = useBoolean();
 
   const id = React.useId();
@@ -26,7 +38,7 @@ const Input: React.FC<InputProps> = (props) => {
         {label}
       </label>
 
-      <div className="relative">
+      <div className="relative ">
         <input
           id={id}
           name={name}
@@ -41,14 +53,13 @@ const Input: React.FC<InputProps> = (props) => {
           )}
         />
 
-        {type === 'password' && (
-          <button
-            onClick={setShowPassword.toggle}
-            className="absolute -translate-y-1/2 cursor-pointer top-1/2 right-2"
-          >
+        {type === 'password' && !renderHTMLOnInput && (
+          <div onClick={setShowPassword.toggle} className="absolute -translate-y-1/2 cursor-pointer top-1/2 right-2">
             {showPassword ? <RxEyeOpen /> : <RxEyeClosed />}
-          </button>
+          </div>
         )}
+
+        {renderHTMLOnInput && <div>{renderHTMLOnInput?.()}</div>}
       </div>
       <div>
         <span className="leading-[16px] text-[12px] text-coral_red mb-2.5 font-[400]">{error}</span>

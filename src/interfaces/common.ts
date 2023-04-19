@@ -13,3 +13,10 @@ export type NextPageWithLayout = NextPage & {
 export type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
+
+export interface ResponseData<T = any> {
+  message?: string;
+  status?: string;
+  statusCode?: number;
+  data?: T;
+}

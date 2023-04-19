@@ -1,33 +1,25 @@
 import classNames from 'classnames';
 import * as React from 'react';
-import {TooltipProps} from './interfaces';
-import {placementTooltip} from './functions';
-import {useBoolean} from 'hooks-react-custom';
+import { useBoolean, useOnClickOutside } from 'hooks-react-custom';
+import Tippy, { TippyProps, useSingleton } from '@tippyjs/react/headless';
 
-const Tooltip: React.FC<TooltipProps> = props => {
-  const {children, visible = undefined, placement = 'bottom', render} = props;
+interface ClassesTooltip {
+  container?: string;
+}
 
-  const [visibleTooltip, setVisibleTooltip] = useBoolean(false);
+interface TooltipProps extends TippyProps {
+  classes?: ClassesTooltip;
+  attributesContainer?: any;
+}
+
+const Tooltip: React.FC<TooltipProps> = (props) => {
+  const { attributesContainer, classes, children, interactive = true, ...rest } = props;
 
   return (
-    <div className={classNames('relative')}>
-      <div
-        onMouseOver={typeof visible === 'undefined' ? setVisibleTooltip.setTrue : () => {}}
-        onMouseLeave={typeof visible === 'undefined' ? setVisibleTooltip.setFalse : () => {}}
-      >
+    <div {...attributesContainer} className={classes?.container}>
+      <Tippy interactive={interactive} hideOnClick popperOptions={{ strategy: 'fixed' }} {...rest}>
         {children}
-      </div>
-      <div
-        style={{
-          ...placementTooltip(placement),
-        }}
-        className={classNames(
-          'absolute opacity-0 transition-all duration-300 z-[-1] pointer-events-none',
-          (visible || visibleTooltip) && '!opacity-100 !pointer-events-auto !z-[1000]'
-        )}
-      >
-        {render?.()}
-      </div>
+      </Tippy>
     </div>
   );
 };
