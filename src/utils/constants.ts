@@ -5,4 +5,7 @@ export const routes = {
   LOGIN: '/auth/login',
   SIGN_UP: '/auth/sign-up',
   CART: '/cart',
+  MY_ACCOUNT: '/user/my-account',
+  CATEGORY: '/category',
+  PRODUCT: '/product',
 };

@@ -29,6 +29,7 @@ const Header: React.FC<HeaderProps> = (props) => {
             <div className="uppercase justify-end font-[400] text-spanish_gray text-[12px] flex gap-2 items-center h-full">
               {currentUser ? (
                 <Tooltip
+                  hideOnClick
                   interactive
                   onClickOutside={actionTooltip.setFalse}
                   visible={showTooltipAccount}
@@ -36,6 +37,12 @@ const Header: React.FC<HeaderProps> = (props) => {
                   render={() => (
                     <div className="p-4 rounded-md bg-white shadow-[rgba(149,157,165,0.2)_0px_8px_24px] min-w-[300px]">
                       <div className="flex flex-col text-left">
+                        <Link
+                          href={routes.MY_ACCOUNT}
+                          className="text-left px-4 hover:bg-[rgba(0,0,0,.03)] rounded-md py-2"
+                        >
+                          My Account
+                        </Link>
                         <button
                           onClick={handleLogout}
                           className="text-left px-4 hover:bg-[rgba(0,0,0,.03)] rounded-md py-2"

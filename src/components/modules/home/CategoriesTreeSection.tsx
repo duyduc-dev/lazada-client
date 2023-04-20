@@ -11,7 +11,7 @@ interface CategoriesTreeSectionProps {}
 
 const CategoriesTreeSection: React.FC<CategoriesTreeSectionProps> = (props) => {
   const {} = props;
-  const query = useQuery<CategoriesTree[]>('categories', onHandleGetCategoriesTree);
+  const query = useQuery<CategoriesTree[]>('categories-tree', onHandleGetCategoriesTree);
   const [categoryLevel2, setCategoryLevel2] = React.useState<CategoriesTree[]>([]);
   const [categoryLevel3, setCategoryLevel3] = React.useState<CategoriesTree[]>([]);
 

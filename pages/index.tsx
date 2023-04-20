@@ -1,10 +1,10 @@
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
-import WrapCart from '~/src/components/Cart/WrapCart';
 import MainLayout from '~/src/components/layouts/MainLayout';
 import CarouselSection from '~/src/components/modules/home/CarouselSection';
+import CategoriesSuggestSection from '~/src/components/modules/home/CategoriesSuggestSection';
 import CategoriesTreeSection from '~/src/components/modules/home/CategoriesTreeSection';
-import { CategoriesTree } from '~/src/interfaces/category';
+import ProductSection from '~/src/components/modules/home/ProductSection';
 
 export default function Home() {
   return (
@@ -21,6 +21,11 @@ export default function Home() {
             <div className="w-[calc(1188px_-_250px)]">
               <CarouselSection />
             </div>
+          </div>
+          <div>
+            <CategoriesSuggestSection />
+
+            <ProductSection />
           </div>
         </div>
       </div>

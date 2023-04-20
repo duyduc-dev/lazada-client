@@ -2,7 +2,8 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['lzd-img-global.slatic.net']
+    domains: ['lzd-img-global.slatic.net',
+      'down-vn.img.susercontent.com', 'localhost']
   }
 }
 

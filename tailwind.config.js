@@ -169,7 +169,8 @@ module.exports = {
       vivid_tangelo: '#f57224',
       spanish_gray: '#9e9e9e',
       cultured: '#f5f5f5',
-      sonic_silver_1: '#757575',
+      cultured_2: '#F6F6F4',
+      sonic_silver: '#757575',
       silver_pink: '#c4b0b0',
       bondi_blue: '#049cb9',
       coral_red: '#f44336',
@@ -180,10 +181,18 @@ module.exports = {
       raisin_black: '#212121',
       lotion: '#fafafa',
       gainsboro: '#dadada',
-      caribbean_green: '#11c296',
+      caribbean_green: '# ',
       water: '#d4f3eb',
       quick_silver: '#a0a0a0',
-      nickel: '#727272'
+      nickel: '#727272',
+      dark_imperial_blue: '#0f136d',
+      chinese_orange: '#f36f36',
+      yankees_blue: '#183544',
+      platinum: '#e2e2e2',
+      blood_orange: '#d70018',
+      custom_orange: '#f59e0b'
+
+
     }),
     columns: {
       auto: 'auto',

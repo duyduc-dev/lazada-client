@@ -1,19 +1,8 @@
-import { useInput } from 'hooks-react-custom';
-import { BsHeart, BsTrash } from 'react-icons/bs';
 import { IoIosArrowForward } from 'react-icons/io';
 import CartProduct from './Cart';
 
 interface WrapCartProps {}
 function WrapCart(props: WrapCartProps) {
-  const { eventBind, setValue, value } = useInput(1);
-
-  const handleClickDecrementQuantity = () => {
-    +value > 1 && setValue((a) => `${Number(a) - 1}`);
-  };
-  const handleClickIncrementQuantity = () => {
-    setValue((a) => `${Number(a) + 1}`);
-  };
-
   return (
     <div className="cart ">
       <div className="">

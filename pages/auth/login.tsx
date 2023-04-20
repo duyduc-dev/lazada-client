@@ -50,7 +50,7 @@ const Login = () => {
         <title>Login Lazada</title>
       </Head>
       <div>
-        <div className="bg-anti_flash_white">
+        <div className="bg-anti_flash_white pb-20">
           <div className="flex justify-center ">
             <div className="w-[810px] ">
               <div className="flex items-center justify-between pt-9 pb-9">
