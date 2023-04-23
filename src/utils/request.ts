@@ -7,13 +7,7 @@ const Config: any = {
 
 type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH' | 'PURGE';
 
-const processAPI = async <T = any>(
-  method: HttpMethod,
-  url: string,
-  body?: T,
-  header?: object | null,
-  option?: any
-) => {
+const processAPI = async <T = any>(method: HttpMethod, url: string, body?: T, header?: object | null, option?: any) => {
   const reqMethod: HttpMethod = method || 'GET';
 
   let reqUrl = url;
@@ -44,8 +38,7 @@ const processAPI = async <T = any>(
   return rs?.data;
 };
 
-const GET = async (url: string, header?: any, option?: any) =>
-  await processAPI('GET', url, false, header, option);
+const GET = async (url: string, header?: any, option?: any) => await processAPI('GET', url, false, header, option);
 
 const POST = async <T = any>(url: string, body?: T, header?: any, option?: any) =>
   await processAPI('POST', url, body, header, option);

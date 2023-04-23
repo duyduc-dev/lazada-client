@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import * as React from 'react';
 import { GrSearch } from 'react-icons/gr';
 import Link from 'next/link';
@@ -59,8 +59,15 @@ const Header: React.FC<HeaderProps> = (props) => {
                 </Tooltip>
               ) : (
                 <>
-                  <Link href={routes.LOGIN}>login</Link>
-                  <Link href={routes.SIGN_UP}>signup</Link>
+                  <Link className="hover:text-vivid_tangelo" href={routes.SELL_ON_LAZADA}>
+                    SELL ON LAZADA
+                  </Link>
+                  <Link className="hover:text-vivid_tangelo" href={routes.LOGIN}>
+                    login
+                  </Link>
+                  <Link className="hover:text-vivid_tangelo" href={routes.SIGN_UP}>
+                    signup
+                  </Link>
                 </>
               )}
             </div>
@@ -68,8 +75,8 @@ const Header: React.FC<HeaderProps> = (props) => {
         </div>
         <div className="">
           <div className="h-[75px] flex items-center max-w-screen-custom_lg mx-auto ">
-            <Link href={routes.HOME} className="relative">
-              <Image src={logoLazada.src} alt="" width={127} height={40} priority />
+            <Link href={routes.HOME} className="relative w-[127px] h-[40px]">
+              <Image src={logoLazada.src} layout="fill" alt="" priority />
             </Link>
             <div className="flex-1">
               <div className="h-[45px]">

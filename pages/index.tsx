@@ -1,10 +1,20 @@
 import { GetServerSideProps } from 'next';
+import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import MainLayout from '~/src/components/layouts/MainLayout';
 import CarouselSection from '~/src/components/modules/home/CarouselSection';
 import CategoriesSuggestSection from '~/src/components/modules/home/CategoriesSuggestSection';
 import CategoriesTreeSection from '~/src/components/modules/home/CategoriesTreeSection';
 import ProductSection from '~/src/components/modules/home/ProductSection';
+
+// const CarouselSection = dynamic(() => import('~/src/components/modules/home/CarouselSection'), { ssr: false });
+// const CategoriesSuggestSection = dynamic(() => import('~/src/components/modules/home/CategoriesSuggestSection'), {
+//   ssr: false,
+// });
+// const CategoriesTreeSection = dynamic(() => import('~/src/components/modules/home/CategoriesTreeSection'), {
+//   ssr: false,
+// });
+// const ProductSection = dynamic(() => import('~/src/components/modules/home/ProductSection'), { ssr: false });
 
 export default function Home() {
   return (

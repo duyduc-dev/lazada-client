@@ -1,6 +1,4 @@
-import classNames from 'classnames';
 import * as React from 'react';
-import { useBoolean, useOnClickOutside } from 'hooks-react-custom';
 import Tippy, { TippyProps, useSingleton } from '@tippyjs/react/headless';
 
 interface ClassesTooltip {
@@ -13,11 +11,11 @@ interface TooltipProps extends TippyProps {
 }
 
 const Tooltip: React.FC<TooltipProps> = (props) => {
-  const { attributesContainer, classes, children, interactive = true, ...rest } = props;
+  const { attributesContainer, visible, classes, children, interactive = true, ...rest } = props;
 
   return (
     <div {...attributesContainer} className={classes?.container}>
-      <Tippy interactive={interactive} hideOnClick popperOptions={{ strategy: 'fixed' }} {...rest}>
+      <Tippy interactive={interactive} hideOnClick visible={visible} popperOptions={{ strategy: 'fixed' }} {...rest}>
         {children}
       </Tippy>
     </div>

@@ -3,7 +3,7 @@ import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import { FaFacebookF, FaGooglePlusG } from 'react-icons/fa';
 import Head from 'next/head';
-import { routes } from '~/src/utils/constants';
+import { LOCAL_REDIRECT_PATH, routes } from '~/src/utils/constants';
 import { LoginModel } from '~/src/interfaces/auth';
 import MainLayout from '~/src/components/layouts/MainLayout';
 import { Input } from '~/src/components/auth/Form';
@@ -11,6 +11,7 @@ import { onHandleLogin } from '~/src/services/auth';
 import { useAuth } from '~/src/context/AuthContext';
 import { toast } from 'react-hot-toast';
 import { useRouter } from 'next/router';
+import { useLocalStorage } from 'hooks-react-custom';
 
 const loginSchema = Yup.object().shape({
   email: Yup.string().required("You can't leave this empty").email('Email invalid.'),
@@ -20,6 +21,7 @@ const loginSchema = Yup.object().shape({
 const Login = () => {
   const { saveAuth } = useAuth();
   const router = useRouter();
+  const [redirect, , removeRedirect] = useLocalStorage(LOCAL_REDIRECT_PATH, routes.HOME);
   const { handleSubmit, errors, getFieldProps } = useFormik<LoginModel>({
     initialValues: {
       email: '',
@@ -37,7 +39,10 @@ const Login = () => {
         });
         toast.success('Login successful!', { duration: 2000 });
         setTimeout(() => {
-          router.push(routes.HOME);
+          if (redirect) {
+            router.push(redirect);
+            removeRedirect();
+          } else router.push(routes.HOME);
         }, 2000);
       } else {
         toast.error('Login failed!', { duration: 2000 });

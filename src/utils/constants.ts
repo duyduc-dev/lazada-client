@@ -8,4 +8,5 @@ export const routes = {
   MY_ACCOUNT: '/user/my-account',
   CATEGORY: '/category',
   PRODUCT: '/product',
+  SELL_ON_LAZADA: '/sell-on-lazada',
 };

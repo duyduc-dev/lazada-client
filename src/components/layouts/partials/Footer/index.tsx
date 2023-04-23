@@ -27,7 +27,7 @@ const Footer: React.FC<FooterProps> = (props) => {
 
   return (
     <footer>
-      <div className="pb-10 bg-cultured_2">
+      <div className="pb-20 pt-10 bg-cultured_2">
         <div className="flex justify-between mx-auto max-w-screen-custom_lg">
           <div className="pt-5">
             <h4 className="text-dark_imperial_blue text-[16px] mb-2">CONTACT US</h4>
@@ -162,13 +162,13 @@ const Footer: React.FC<FooterProps> = (props) => {
           <div>
             <p className="text-yankees_blue">Delivery Services</p>
             <div className="flex flex-wrap">
-              <Image src={lazada.src} alt="" width={96} height={70} />
-              <Image src={ghn.src} alt="" width={96} height={70} />
-              <Image src={ninja.src} alt="" width={96} height={70} />
-              <Image src={ship60.src} alt="" width={96} height={70} />
-              <Image src={bestExpress.src} alt="" width={96} height={70} />
-              <Image src={ahamove.src} alt="" width={96} height={70} />
-              <Image src={jtExpress.src} alt="" width={96} height={70} />
+              <Image src={lazada.src} alt="" priority width={96} height={70} />
+              <Image src={ghn.src} alt="" priority width={96} height={70} />
+              <Image src={ninja.src} alt="" priority width={96} height={70} />
+              <Image src={ship60.src} alt="" priority width={96} height={70} />
+              <Image src={bestExpress.src} alt="" priority width={96} height={70} />
+              <Image src={ahamove.src} alt="" priority width={96} height={70} />
+              <Image src={jtExpress.src} alt="" priority width={96} height={70} />
             </div>
           </div>
           <div>

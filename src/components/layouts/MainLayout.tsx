@@ -2,8 +2,7 @@ import * as React from 'react';
 import dynamic from 'next/dynamic';
 import { LayoutProps } from '~/src/interfaces/common';
 import Footer from './partials/Footer';
-
-const Header = dynamic(() => import('./partials/Header'), { ssr: false });
+import Header from './partials/Header';
 
 const MainLayout: React.FC<LayoutProps> = (props) => {
   const { children } = props;

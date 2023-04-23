@@ -16,7 +16,6 @@ const ProductSection: React.FC<ProductSectionProps> = (props) => {
     const [err, data] = await onHandleGetAllProduct();
     if (!err && data) return data || [];
   });
-  console.log(`file: ProductSection.tsx:19 ~ const{data}=useQuery<ProductModel[]> ~ data:`, data);
 
   return (
     <div className="pb-10 mt-10 rounded-md">

@@ -1,4 +1,5 @@
 import { useInput } from 'hooks-react-custom';
+import { ChangeEventHandler } from 'react';
 import { BsHeart, BsTrash } from 'react-icons/bs';
 
 interface CartProductProps {}
@@ -12,14 +13,12 @@ function CartProduct(props: CartProductProps) {
   const handleClickIncrementQuantity = () => {
     setValue((a) => `${Number(a) + 1}`);
   };
+
   return (
     <div className="flex bg-white flex-nowrap py-[16px]  px-[16px]">
       <div className="pl-[10px]">
         <div className="flex mb-3">
-          <input
-            className="mt-2 mr-[16px] scale-125 border-[12px] leading relative right-[13px]"
-            type="checkbox"
-          />
+          <input className="mt-2 mr-[16px] scale-125 border-[12px] leading relative right-[13px]" type="checkbox" />
           <div className="relative right-3">
             <img
               className="w-[100px] h-[80px] mr-[10px]"
@@ -32,9 +31,7 @@ function CartProduct(props: CartProductProps) {
             <span className="block max-h-[32px] w-full text-[14px] leading-4 text-raisin_black">
               Nồi Lẩu Mini Đa Năng 1 ,8L nấu Lẩu, Hấp, Luộc, Xào 2 Tầng Vật Liệu Chống Dính An Toàn
             </span>
-            <span className="block mt-[6px] text-[12px] text-sonic_silver_2 ">
-              ZODAN, Variation3:RẺ - LỒNG NHỰA RẺ
-            </span>
+            <span className="block mt-[6px] text-[12px] text-sonic_silver_2 ">ZODAN, Variation3:RẺ - LỒNG NHỰA RẺ</span>
           </div>
         </div>
       </div>

@@ -47,10 +47,10 @@ const CategoriesTreeSection: React.FC<CategoriesTreeSectionProps> = (props) => {
           {categoryLevel2?.map((e, i) => (
             <div
               key={`${i}`}
-              className="py-1.5 cursor-pointer hover:bg-[rgba(0,0,0,0.03)] rounded-md px-4"
+              className=" cursor-pointer hover:bg-[rgba(0,0,0,0.03)] rounded-md "
               onMouseOver={() => setCategoryLevel3(e.children || [])}
             >
-              <Link href={`/category/${e.slug}`} className="flex items-center justify-between">
+              <Link href={`/category/${e.slug}`} className="py-1.5 px-4 flex items-center justify-between">
                 <span>{e.name}</span>
                 {e.children && e?.children?.length > 0 && (
                   <div>
@@ -72,10 +72,10 @@ const CategoriesTreeSection: React.FC<CategoriesTreeSectionProps> = (props) => {
         {query.data?.map((e, i) => (
           <div
             key={`${i}`}
-            className="py-1.5 cursor-pointer hover:bg-[rgba(0,0,0,0.03)] rounded-md px-4"
+            className=" cursor-pointer hover:bg-[rgba(0,0,0,0.03)] rounded-md "
             onMouseOver={() => setCategoryLevel2(e.children || [])}
           >
-            <Link href={`/category/${e.slug}`} className="flex items-center justify-between">
+            <Link href={`/category/${e.slug}`} className="py-1.5 px-4 flex items-center justify-between">
               <span>{e.name}</span>
               {e.children && e?.children?.length > 0 && (
                 <div>

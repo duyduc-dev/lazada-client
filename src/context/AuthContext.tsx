@@ -6,6 +6,7 @@ import request from '~/utils/request';
 import { onHandleLogout } from '~/services/auth';
 import { LOCAL_REDIRECT_PATH, routes } from '../utils/constants';
 import { toast } from 'react-hot-toast';
+import { useLocalStorage } from 'hooks-react-custom';
 
 type AuthContextProps = {
   auth: AuthModel | undefined;
@@ -48,6 +49,7 @@ const AuthProvider = ({ children }: AuthProps) => {
   const router = useRouter();
   const [auth, setAuth] = useState<AuthModel | undefined>(authHelper.getAuth());
   const [currentUser, setCurrentUser] = useState<AuthUserModel | undefined>(authHelper.getUser());
+  const [redirect, setRedirect] = useLocalStorage(LOCAL_REDIRECT_PATH, routes.HOME);
 
   const saveAuth = useCallback((authData: AuthModel | undefined) => {
     setAuth(authData);
@@ -81,7 +83,7 @@ const AuthProvider = ({ children }: AuthProps) => {
   const handleRedirectLogin = () => {
     if (window !== undefined) {
       if (router?.pathname && router?.pathname !== routes.LOGIN && router?.pathname !== routes.SIGN_UP) {
-        localStorage.setItem(LOCAL_REDIRECT_PATH, router.asPath);
+        setRedirect(router.asPath);
       }
     }
     if (!currentUser) {

@@ -1,9 +1,18 @@
-import MainLayout from '~/src/components/layouts/MainLayout';
+import { useIsomorphicLayoutEffect } from 'hooks-react-custom';
+import { useEffect } from 'react';
 import { BsTrash } from 'react-icons/bs';
+import MainLayout from '~/src/components/layouts/MainLayout';
 import WrapCart from '~/src/components/Cart/WrapCart';
 import OrderSummary from '~/src/components/Cart/OrderSummary';
+import { useAuth } from '~/src/context/AuthContext';
 
 const Cart = () => {
+  const { handleRedirectLogin } = useAuth();
+
+  useIsomorphicLayoutEffect(() => {
+    handleRedirectLogin();
+  }, [handleRedirectLogin]);
+
   return (
     <div className="min-h-[675px] bg-cultured pb-20">
       <div className="container w-[1188px] m-auto mx-20px flex justify-center ">

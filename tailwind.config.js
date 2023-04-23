@@ -163,6 +163,11 @@ module.exports = {
       pink: colors.pink,
       rose: colors.rose,
 
+      coral_red: '#f44336',
+      jasper_red: '#d34836',
+      electric_orange: '#ff330c',
+      blood_orange: '#d70018',
+      jasper: '#e04040',
       blue_green: '#1a9cb7',
       title_arsenic: '#424242',
       anti_flash_white: '#eff0f5',
@@ -173,11 +178,8 @@ module.exports = {
       sonic_silver: '#757575',
       silver_pink: '#c4b0b0',
       bondi_blue: '#049cb9',
-      coral_red: '#f44336',
-      jasper_red: '#d34836',
       facebook_color: '#3b5998',
       sonic_silver_2: '#747474',
-      electric_orange: '#ff330c',
       raisin_black: '#212121',
       lotion: '#fafafa',
       gainsboro: '#dadada',
@@ -189,8 +191,7 @@ module.exports = {
       chinese_orange: '#f36f36',
       yankees_blue: '#183544',
       platinum: '#e2e2e2',
-      blood_orange: '#d70018',
-      custom_orange: '#f59e0b'
+      custom_orange: '#f59e0b',
 
 
     }),

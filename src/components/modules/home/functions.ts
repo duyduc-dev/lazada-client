@@ -27,7 +27,6 @@ export const onHandleGetCategories = async () => {
 export const onHandleGetAllProduct = async () => {
   try {
     const res: ResponseData = await request.GET('/product');
-    console.log(`file: functions.ts:30 ~ onHandleGetAllProduct ~ res:`, res);
     if (res.statusCode === 0 && res.data) return [false, res.data];
     return [true, res] as const;
   } catch (error) {

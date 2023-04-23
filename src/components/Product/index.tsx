@@ -5,7 +5,7 @@ import { routes } from '~/src/utils/constants';
 import flag from '~/assets/flag.svg';
 import Image from 'next/image';
 import Rating from './Rating';
-import { ProductModel } from '~/src/interfaces/product';
+import { ProductModel, ProductTypeModel } from '~/src/interfaces/product';
 
 interface ProductProps {
   data?: ProductModel;
@@ -13,12 +13,13 @@ interface ProductProps {
 
 const Product: React.FC<ProductProps> = (props) => {
   const { data } = props;
+  const [firstProdType, setFirstProdType] = React.useState<ProductTypeModel>(data?.productTypes?.[0] || {});
 
   return (
     <div>
       <Link
         href={`${routes.PRODUCT}/${data?.slug}`}
-        className="transition-all relative duration-300 flex flex-col border-none hover:shadow-[0_2px_5px_0_rgba(0,0,0,.25)] justify-center px-5 pt-5 bg-white rounded-md pb-7"
+        className="h-full transition-all relative duration-300 flex flex-col border-none hover:shadow-[0_2px_5px_0_rgba(0,0,0,.25)] justify-center px-5 pt-5 bg-white rounded-md pb-7"
       >
         {data?.discount && (
           <div className="absolute top-2 left-[-4px]">
@@ -31,7 +32,7 @@ const Product: React.FC<ProductProps> = (props) => {
         <div
           className="mx-auto"
           style={{
-            backgroundImage: `url(${data?.images})`,
+            backgroundImage: `url(${data?.productTypes?.[0].image})`,
             backgroundRepeat: 'no-repeat',
             width: 160,
             height: 160,
@@ -43,12 +44,14 @@ const Product: React.FC<ProductProps> = (props) => {
           <h3 className="text-2-line text-[14px] leading-5 font-medium">{data?.title}</h3>
           <div className="flex items-end gap-2">
             <p className="flex items-start gap-1 mt-2 font-bold text-blood_orange">
-              {utils.formatMoney(+(data?.price || 0) * +(data?.discount || 0))}{' '}
+              {utils.formatMoney(
+                data?.discount ? +(data?.discount || 0) * +(firstProdType.price || 0) : firstProdType.price
+              )}
               <span className="underline text-[12px]">đ</span>
             </p>
             {data?.discount && (
               <p className="flex items-start gap-1 mt-2 font-bold line-through text-nickel text-[14px]">
-                {utils.formatMoney(data?.price)}
+                {utils.formatMoney(firstProdType.price)}
                 <span className="underline text-[12px]">đ</span>
               </p>
             )}
@@ -58,7 +61,7 @@ const Product: React.FC<ProductProps> = (props) => {
               <p className="max-h-[36px] text-2-line">{data.description}</p>
             </div>
           )}
-          {data?.rating && <Rating rate={data.rating} />}
+          {data && (data?.rating || 0) > 0 && <Rating rate={data.rating} />}
         </div>
       </Link>
     </div>
