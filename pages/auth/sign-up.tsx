@@ -7,7 +7,7 @@ import { useBoolean } from 'hooks-react-custom';
 import { FaFacebookF, FaGooglePlusG } from 'react-icons/fa';
 import classNames from 'classnames';
 import { routes } from '~/src/utils/constants';
-import { AuthUserModel, SignUpModel } from '~/src/interfaces/auth';
+import { SignUpModel } from '~/src/interfaces/auth';
 import MainLayout from '~/src/components/layouts/MainLayout';
 import Input from '~/src/components/auth/Form/Input';
 import { SelectGender } from '~/src/components/auth/Form';
@@ -17,8 +17,9 @@ import Popup from '~/src/components/Popup';
 import { onHandleRegister, onHandleVerifyEmailRegister } from '~/src/services/auth';
 import LazadaLoading from '~/src/components/LazadaLoading';
 import { useAuth } from '~/src/context/AuthContext';
-import { toast } from 'react-hot-toast';
+// import { toast } from 'react-hot-toast';
 import { useRouter } from 'next/router';
+import { toast } from 'react-hot-toast';
 
 const signUpSchema = Yup.object().shape({
   fullName: Yup.string()
@@ -45,7 +46,9 @@ const signUpSchema = Yup.object().shape({
     .required("You can't leave this empty")
     .max(new Date(Date.now()), 'Please select the correct birthday.'),
   code: Yup.string().required('You must verify email address'),
-  phone: Yup.string().required('You can not leave this empty').matches(/[0-9]/, 'Please enter a phone number'),
+  phone: Yup.string()
+    .required('You can not leave this empty')
+    .matches(/[0-9]/, 'Please enter a phone number'),
 });
 
 const SignUp = () => {
@@ -136,7 +139,9 @@ const SignUp = () => {
           <div className="flex justify-center">
             <div className="w-[810px] ">
               <div className="flex items-center justify-between pt-9 pb-9">
-                <div className="text-title_arsenic text-[22px] font-[400]">Create your Lazada Account</div>
+                <div className="text-title_arsenic text-[22px] font-[400]">
+                  Create your Lazada Account
+                </div>
                 <div className="text-[12px] text-sonic_silver flex gap-1">
                   <div>Already member?</div>
                   <Link href={routes.LOGIN} className="no-underline text-blue_green">
@@ -145,7 +150,10 @@ const SignUp = () => {
                   <div>here!</div>
                 </div>
               </div>
-              <form onSubmit={handleSubmit} className="flex justify-between p-[25px] w-[810px] border-box bg-white">
+              <form
+                onSubmit={handleSubmit}
+                className="flex justify-between p-[25px] w-[810px] border-box bg-white"
+              >
                 <div className="max-w-[380px] w-full">
                   <Input
                     label="Email Address*"
@@ -157,7 +165,9 @@ const SignUp = () => {
                   {showDragger ? (
                     <div>
                       <DraggableVerify breakpoints={300} onEnd={handleDraggerEnd} />
-                      <span className="leading-[16px] text-[12px] text-coral_red mb-2.5 font-[400]">{errors.code}</span>
+                      <span className="leading-[16px] text-[12px] text-coral_red mb-2.5 font-[400]">
+                        {errors.code}
+                      </span>
                     </div>
                   ) : (
                     <Input
@@ -179,7 +189,12 @@ const SignUp = () => {
                       )}
                     />
                   )}
-                  <Input label="Phone number*" placeholder="phone" error={errors.phone} {...getFieldProps('phone')} />
+                  <Input
+                    label="Phone number*"
+                    placeholder="phone"
+                    error={errors.phone}
+                    {...getFieldProps('phone')}
+                  />
                   <Input
                     label="Password*"
                     placeholder="Minimum 6 characters with number, letter and characters"
@@ -240,10 +255,12 @@ const SignUp = () => {
                     </div>
                     <div className="text-xs text-sonic_silver w-[19rem] items-center my-5">
                       <span>
-                        By proceeding to sign up, I acknowledge that I have read and consented to Lazada’s
+                        By proceeding to sign up, I acknowledge that I have read and consented to
+                        Lazada’s
                         <a className="no-underline text-blue_green"> Terms of Use</a> and
-                        <a className="no-underline text-blue_green"> Private Policy</a> , which sets out how Lazada
-                        collects, uses and discloses my personal data, and the rights that I have under applicable law.
+                        <a className="no-underline text-blue_green"> Private Policy</a> , which sets
+                        out how Lazada collects, uses and discloses my personal data, and the rights
+                        that I have under applicable law.
                       </span>
                     </div>
                     <div className="my-2 text-[12px] text-sonic_silver text-start block">
@@ -279,7 +296,9 @@ const SignUp = () => {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 !bg-white py-5 px-6">
           <div className="max-w-[300px] w-full text-raisin_black">
             <h3 className="font-normal text-[14px] mb-2">Security Verification</h3>
-            <p className="text-nickel text-[12px]">For your account security, please slide left to right :</p>
+            <p className="text-nickel text-[12px]">
+              For your account security, please slide left to right :
+            </p>
             <div className="mt-3">
               <DraggableVerify breakpoints={180} onEnd={handleDraggerEnd} />
             </div>

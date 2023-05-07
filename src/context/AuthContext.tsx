@@ -49,7 +49,7 @@ const AuthProvider = ({ children }: AuthProps) => {
   const router = useRouter();
   const [auth, setAuth] = useState<AuthModel | undefined>(authHelper.getAuth());
   const [currentUser, setCurrentUser] = useState<AuthUserModel | undefined>(authHelper.getUser());
-  const [redirect, setRedirect] = useLocalStorage(LOCAL_REDIRECT_PATH, routes.HOME);
+  const [, setRedirect] = useLocalStorage(LOCAL_REDIRECT_PATH, routes.HOME);
 
   const saveAuth = useCallback((authData: AuthModel | undefined) => {
     setAuth(authData);
@@ -126,10 +126,8 @@ const AuthInit = ({ children }: AuthProps) => {
     } else if (logout && auth?.api_token) {
       logout();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [auth]);
 
-  // eslint-disable-next-line react/jsx-no-useless-fragment
   return <>{children}</>;
 };
 

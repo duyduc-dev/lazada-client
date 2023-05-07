@@ -36,5 +36,7 @@
     "typescript": "5.0.4",
     "yup": "^1.1.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "eslint-config-prettier": "^8.8.0"
+  }
 }

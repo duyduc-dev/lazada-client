@@ -24,10 +24,11 @@ export const onHandleGetCategories = async () => {
   }
 };
 
+// Method async get all product
 export const onHandleGetAllProduct = async () => {
   try {
     const res: ResponseData = await request.GET('/product');
-    if (res.statusCode === 0 && res.data) return [false, res.data];
+    if (res.statusCode === 0 && res.data) return [false, res.data]; // [error, data]
     return [true, res] as const;
   } catch (error) {
     console.log(`file: functions.ts:31 ~ onHandleGetAllProduct ~ error:`, error);

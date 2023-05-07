@@ -17,7 +17,7 @@ const ProductPriceSection: React.FC<ProductPriceSectionProps> = (props) => {
         <span className="underline text-[12px]">đ</span>
       </p>
       <div>
-        {discount && (
+        {discount != 0 && discount && (
           <div className="flex items-center gap-3">
             <div>
               {discount && (

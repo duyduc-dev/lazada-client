@@ -1,6 +1,6 @@
 export interface LoginModel {
   email: string;
-  password: string;
+  password: string
 }
 
 export interface AuthModel {

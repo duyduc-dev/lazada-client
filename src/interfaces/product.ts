@@ -6,7 +6,6 @@ export interface ProductModel {
   title?: string;
   description?: string;
   slug?: string;
-  discount?: number | string;
   productTypes?: ProductTypeModel[];
   rating?: number;
   category?: CategoryModel;
@@ -17,6 +16,7 @@ export interface ProductTypeModel {
   type?: string;
   image?: string;
   price?: number;
+  discount?: number;
 }
 
 export interface ProductSellerModel {

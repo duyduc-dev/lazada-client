@@ -1,13 +1,16 @@
-import { useIsomorphicLayoutEffect } from 'hooks-react-custom';
-import { useEffect } from 'react';
-import { BsTrash } from 'react-icons/bs';
-import MainLayout from '~/src/components/layouts/MainLayout';
-import WrapCart from '~/src/components/Cart/WrapCart';
-import OrderSummary from '~/src/components/Cart/OrderSummary';
-import { useAuth } from '~/src/context/AuthContext';
+import { useIsomorphicLayoutEffect } from "hooks-react-custom";
+import { BsTrash } from "react-icons/bs";
+import MainLayout from "~/src/components/layouts/MainLayout";
+import WrapCart from "~/src/components/Cart/WrapCart";
+import OrderSummary from "~/src/components/Cart/OrderSummary";
+import { useAuth } from "~/src/context/AuthContext";
+import useCart from "~/src/hooks/useCart";
+import CartProduct from "~/src/components/Cart/Cart";
+import React, { useState } from "react";
 
 const Cart = () => {
   const { handleRedirectLogin } = useAuth();
+  const { carts } = useCart();
 
   useIsomorphicLayoutEffect(() => {
     handleRedirectLogin();
@@ -19,25 +22,41 @@ const Cart = () => {
         <div className="box-border">
           <div className=" container flex justify-center mt-[12px]">
             <div className="container w-[788px]">
-              <div className="mb-[12px] flex  bg-white">
+              <div className="py-4 rounded-md mb-[12px] flex bg-white">
                 <div className="flex w-full">
                   <div className="px-[12px]">
                     <label>
-                      <input className="scale-125 border-[12px] outline-none" type="checkbox" />
-                      <span className="ml-[30px] text-[12px] text-sonic_silver">SELECT ALL</span>
+                      <input
+                        className="scale-125 border-[12px] outline-none"
+                        type="checkbox"
+                      />
+                      <span className="ml-[30px] text-[12px] text-sonic_silver">
+                        SELECT ALL
+                      </span>
                     </label>
                   </div>
                 </div>
                 <div className="">
                   <div className="flex justify-center mt-[4px] text-[16px] text-sonic_silver">
                     <BsTrash />
-                    <span className="ml-[5px] text-[12px] text-sonic_silver bottom-[1px] relative">DELETE</span>
+                    <span className="mr-2 ml-[5px] text-[12px] text-sonic_silver bottom-[1px] relative">
+                      DELETE
+                    </span>
                   </div>
                 </div>
               </div>
-              <WrapCart />
-              <WrapCart />
-              <WrapCart />
+              <div>
+                {carts.map((cart, i) => (
+                  <WrapCart seller={cart.seller} key={`${i}`}>
+                    {cart.products.map((product, i) => (
+                      <CartProduct
+                        key={`${i}-${product.title}`}
+                        product={product}
+                      />
+                    ))}
+                  </WrapCart>
+                ))}
+              </div>
             </div>
             <div className=" w-[388px]">
               <OrderSummary />

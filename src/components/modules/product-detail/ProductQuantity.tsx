@@ -47,4 +47,4 @@ const ProductQuantity: React.FC<ProductQuantityProps> = (props) => {
   );
 };
 
-export default ProductQuantity;
+export default React.memo(ProductQuantity);

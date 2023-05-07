@@ -32,6 +32,7 @@ export default function OrderSummary(props: OrderSummaryProps) {
           className=" mt-[40px] mb-5 text-white w-full h-[40px] bg-vivid_tangelo font-light hover:bg-orange-600"
         >
           PROCEED TO CHECKOUT(0)
+          hello anh ems 
         </button>
       </div>
     </div>

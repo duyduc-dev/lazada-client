@@ -21,11 +21,11 @@ const Product: React.FC<ProductProps> = (props) => {
         href={`${routes.PRODUCT}/${data?.slug}`}
         className="h-full transition-all relative duration-300 flex flex-col border-none hover:shadow-[0_2px_5px_0_rgba(0,0,0,.25)] justify-center px-5 pt-5 bg-white rounded-md pb-7"
       >
-        {data?.discount && (
+        {!!data?.productTypes?.[0].discount && (
           <div className="absolute top-2 left-[-4px]">
             <Image src={flag} alt="" width={80} />
             <span className="absolute top-1 block text-white right-3 text-[12px] font-bold">
-              Giảm {+data.discount * 100}%
+              Giảm {+data?.productTypes?.[0].discount * 100}%
             </span>
           </div>
         )}
@@ -45,11 +45,13 @@ const Product: React.FC<ProductProps> = (props) => {
           <div className="flex items-end gap-2">
             <p className="flex items-start gap-1 mt-2 font-bold text-blood_orange">
               {utils.formatMoney(
-                data?.discount ? +(data?.discount || 0) * +(firstProdType.price || 0) : firstProdType.price
+                data?.productTypes?.[0].discount
+                  ? +(data?.productTypes?.[0].discount || 0) * +(firstProdType.price || 0)
+                  : firstProdType.price
               )}
               <span className="underline text-[12px]">đ</span>
             </p>
-            {data?.discount && (
+            {!!data?.productTypes?.[0].discount && (
               <p className="flex items-start gap-1 mt-2 font-bold line-through text-nickel text-[14px]">
                 {utils.formatMoney(firstProdType.price)}
                 <span className="underline text-[12px]">đ</span>

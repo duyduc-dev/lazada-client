@@ -4,17 +4,17 @@ import { MdOutlineChevronRight, MdOutlineChevronLeft } from 'react-icons/md';
 import { useRecoilValue } from 'recoil';
 import 'react-medium-image-zoom/dist/styles.css';
 import Carousel from '~/components/Carousel';
-import { productTypeStore } from '~/src/store/ProductStore';
 
 interface PreviewImageSectionProps {
   images: string[];
+  currentImage: string;
 }
 
 const PreviewImageSection: React.FC<PreviewImageSectionProps> = (props) => {
-  const { images } = props;
+  const { images, currentImage: currImgHover } = props;
 
-  const productTypeValue = useRecoilValue(productTypeStore);
   const [currentImage, setCurrentImage] = React.useState(images[0]);
+
   const handleHoverImage = (image: string) => {
     return () => {
       setCurrentImage(image);
@@ -22,8 +22,8 @@ const PreviewImageSection: React.FC<PreviewImageSectionProps> = (props) => {
   };
 
   React.useEffect(() => {
-    setCurrentImage(productTypeValue.image || images[0]);
-  }, [images, productTypeValue.image]);
+    setCurrentImage(currImgHover || images[0]);
+  }, [images, currImgHover]);
 
   return (
     <div className="w-[340px]">
@@ -49,7 +49,7 @@ const PreviewImageSection: React.FC<PreviewImageSectionProps> = (props) => {
           onRenderItem={(i) => (
             <div className="h-[50px] w-[50px] border cursor-pointer" onMouseOver={handleHoverImage(i)}>
               <Zoom wrapElement="div">
-                <img src={i} alt="" className="relative  w-full h-full cursor-pointer" />
+                <img src={i} alt="" className="relative w-full h-full cursor-pointer" />
               </Zoom>
             </div>
           )}

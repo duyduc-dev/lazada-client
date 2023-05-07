@@ -1,5 +1,7 @@
+import { useRouter } from 'next/router';
 import * as React from 'react';
 import { useAuth } from '~/src/context/AuthContext';
+import { routes } from '~/src/utils/constants';
 
 interface ExpiredTokenProps {
   children: React.ReactNode;
@@ -9,14 +11,14 @@ const ExpiredToken: React.FC<ExpiredTokenProps> = (props) => {
   const { children } = props;
 
   const authContext = useAuth();
-
+  const router = useRouter();
   const handleExpiredToken = (expiredTime: number) => {
     const current = Math.floor(Date.now() / 1000);
     console.log(`file: ExpiredToken.tsx:16 ~ handleExpiredToken ~ expiredTime:`, { expiredTime, current });
     if (Number(expiredTime) < Number(current)) {
       console.log('TOKEN EXPIRY');
-
       authContext.logout();
+      router.push(routes.LOGIN);
     }
   };
 

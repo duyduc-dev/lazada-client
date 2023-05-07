@@ -1,10 +1,17 @@
 import { IoIosArrowForward } from 'react-icons/io';
 import CartProduct from './Cart';
+import React from 'react';
+import { SellerCartModel } from '~/src/interfaces/cart';
 
-interface WrapCartProps {}
+interface WrapCartProps {
+  children: React.ReactNode;
+  seller: SellerCartModel;
+}
+
 function WrapCart(props: WrapCartProps) {
+  const { children, seller } = props;
   return (
-    <div className="cart ">
+    <div className="rounded-md cart">
       <div className="">
         <div className="flex pl-[12px]  bg-white mb-[2px]">
           <label htmlFor="">
@@ -17,19 +24,14 @@ function WrapCart(props: WrapCartProps) {
                 className="mr-[6px] h-[12px]"
                 src="https://lzd-img-global.slatic.net/g/tps/imgextra/i2/O1CN01GlrQiX1rbI98A7PB1_!!6000000005649-2-tps-94-36.png_2200x2200q75.png_.webp"
               />
-              <span className="relative bottom-1">ZODAN Corporation</span>
+              <span className="relative bottom-1">{seller.fullName}</span>
               <IoIosArrowForward />
             </div>
             <div className="z-10 border-b-gray-700"></div>
           </div>
         </div>
         <div className="">
-          <div className="">
-            <CartProduct />
-            <CartProduct />
-            <CartProduct />
-            <CartProduct />
-          </div>
+          <div className="">{children}</div>
           <div className="pb-4"></div>
         </div>
       </div>

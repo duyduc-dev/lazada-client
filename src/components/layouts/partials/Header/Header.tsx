@@ -8,6 +8,7 @@ import cartImg from '~/assets/images/cart.png';
 import { routes } from '~/src/utils/constants';
 import { useAuth } from '~/src/context/AuthContext';
 import Tooltip from '~/src/components/Tooltip';
+import useCart from '~/src/hooks/useCart';
 
 interface HeaderProps {}
 
@@ -16,6 +17,7 @@ const Header: React.FC<HeaderProps> = (props) => {
 
   const { currentUser, logout } = useAuth();
   const [showTooltipAccount, actionTooltip] = useBoolean();
+  const { amount } = useCart();
 
   const handleLogout = async () => {
     await logout();
@@ -100,6 +102,11 @@ const Header: React.FC<HeaderProps> = (props) => {
                 <Link href={routes.CART}>
                   <Image src={cartImg.src} alt="" width={29} height={26} priority />
                 </Link>
+                {!!amount && (
+                  <div className="absolute font-medium text-white bg-coral_red w-[20px] flex items-center justify-center rounded-full text-[12px] h-[20px] top-[-10px] right-[-10px]">
+                    {amount > 9 ? '9+' : amount}
+                  </div>
+                )}
               </div>
             </div>
           </div>
