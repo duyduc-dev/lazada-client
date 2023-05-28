@@ -1,10 +1,13 @@
 import { Toaster } from 'react-hot-toast';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { RecoilRoot } from 'recoil';
+import { Provider } from 'react-redux';
+ 
 import ExpiredToken from '~/src/components/auth/ExpiredToken';
 import EmptyLayout from '~/src/components/layouts/EmptyLayout';
 import { AuthInit, AuthProvider } from '~/src/context/AuthContext';
 import { AppPropsWithLayout } from '~/src/interfaces/common';
+import { store } from '~/src/store';
+
 import '~/styles/globals.css';
 
 const queryClient = new QueryClient();
@@ -15,7 +18,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <RecoilRoot>
+        <Provider store={store}>
           <AuthProvider>
             <AuthInit>
               <ExpiredToken>
@@ -26,7 +29,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
             </AuthInit>
           </AuthProvider>
           <Toaster position="top-right" />
-        </RecoilRoot>
+        </Provider>
       </QueryClientProvider>
     </>
   );

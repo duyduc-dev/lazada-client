@@ -9,4 +9,6 @@ export const routes = {
   CATEGORY: '/category',
   PRODUCT: '/product',
   SELL_ON_LAZADA: '/sell-on-lazada',
+  MY_PROFILE: '/user/my-account/profile',
+  ADDRESS: '/user/my-account/address',
 };

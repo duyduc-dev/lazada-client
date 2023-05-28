@@ -1,5 +1,4 @@
 import { IoIosArrowForward } from 'react-icons/io';
-import CartProduct from './Cart';
 import React from 'react';
 import { SellerCartModel } from '~/src/interfaces/cart';
 
@@ -11,9 +10,9 @@ interface WrapCartProps {
 function WrapCart(props: WrapCartProps) {
   const { children, seller } = props;
   return (
-    <div className="rounded-md cart">
+    <div className="overflow-hidden cart py-2">
       <div className="">
-        <div className="flex pl-[12px]  bg-white mb-[2px]">
+        <div className="rounded-md flex pl-[12px]  bg-white mb-[2px]">
           <label htmlFor="">
             <input className=" mt-2 mr-[16px] scale-125 border-[12px] leading" type="checkbox" />
           </label>
@@ -30,9 +29,8 @@ function WrapCart(props: WrapCartProps) {
             <div className="z-10 border-b-gray-700"></div>
           </div>
         </div>
-        <div className="">
-          <div className="">{children}</div>
-          <div className="pb-4"></div>
+        <div className="rounded-md overflow-hidden">
+          <div className="py-3 bg-white overflow-hidden">{children}</div>
         </div>
       </div>
       <div className=""></div>

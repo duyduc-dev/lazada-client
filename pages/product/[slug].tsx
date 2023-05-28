@@ -17,6 +17,7 @@ import {
   ProductTypeSection,
 } from '~/src/components/modules/product-detail';
 import { useAuth } from '~/src/context/AuthContext';
+import { addToCart } from '~/src/components/Cart/function';
 
 const ProductDetail = () => {
   const router = useRouter();
@@ -35,7 +36,7 @@ const ProductDetail = () => {
   const imagesAllProduct: string[] =
     React.useMemo(() => data?.productTypes?.map((i) => i.image || '').filter((x) => x), [data?.productTypes]) || [];
 
-  const handleClickBuyNow: React.MouseEventHandler<HTMLButtonElement> = () => {
+  const handleClickBuyNow: React.MouseEventHandler<HTMLButtonElement> = async () => {
     if (!currentUser) {
       setModeNotify('login');
       setShowPopup.setTrue();
@@ -46,6 +47,7 @@ const ProductDetail = () => {
       setShowPopup.setTrue();
       return;
     }
+
     console.log({
       quantity: +quantityProduct,
       productId: data?.id,
@@ -53,8 +55,28 @@ const ProductDetail = () => {
     });
   };
 
+  const handleClickAddToCart = async () => {
+    try {
+      if (!productTypePick) {
+        setModeNotify('needType');
+        setShowPopup.setTrue();
+        return;
+      }
+
+      const [err, response] = await addToCart({
+        quantity: +quantityProduct,
+        productId: data?.id || '',
+        typeId: productTypePick?.id || '',
+      });
+
+      console.log('res =>>> ', response);
+    } catch (error) {
+      console.log('error add to cart', error);
+    }
+  };
+
   const handleClickType = () => {
-    setProductTypePick(productTypeHover)
+    setProductTypePick(productTypeHover);
   };
 
   return (
@@ -97,7 +119,7 @@ const ProductDetail = () => {
                     />
                   </div>
                 </div>
-                <GroupButtonSection onClickBuyNow={handleClickBuyNow} />
+                <GroupButtonSection onClickAddToCart={handleClickAddToCart} onClickBuyNow={handleClickBuyNow} />
               </div>
             </div>
           </div>
@@ -106,7 +128,7 @@ const ProductDetail = () => {
           </div>
         </div>
       </div>
-      <ProductPopup  mode={modeNotify} visible={showPopup} onClose={setShowPopup.setFalse} />
+      <ProductPopup mode={modeNotify} visible={showPopup} onClose={setShowPopup.setFalse} />
     </>
   );
 };

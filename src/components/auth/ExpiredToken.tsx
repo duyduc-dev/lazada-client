@@ -12,9 +12,10 @@ const ExpiredToken: React.FC<ExpiredTokenProps> = (props) => {
 
   const authContext = useAuth();
   const router = useRouter();
+
   const handleExpiredToken = (expiredTime: number) => {
     const current = Math.floor(Date.now() / 1000);
-    console.log(`file: ExpiredToken.tsx:16 ~ handleExpiredToken ~ expiredTime:`, { expiredTime, current });
+
     if (Number(expiredTime) < Number(current)) {
       console.log('TOKEN EXPIRY');
       authContext.logout();
@@ -26,7 +27,7 @@ const ExpiredToken: React.FC<ExpiredTokenProps> = (props) => {
     if (authContext && authContext.auth?.refresh_token) {
       handleExpiredToken(Number(authContext.auth?.refresh_token));
     }
-  }, [authContext, authContext.auth?.refresh_token]);
+  }, [router.pathname, authContext, authContext.auth?.refresh_token]);
 
   return <>{children}</>;
 };

@@ -2,16 +2,22 @@ import * as React from 'react';
 import request from '../utils/request';
 import { CartModel } from '../interfaces/cart';
 import { ResponseData } from '../interfaces/common';
+import { useAuth } from '../context/AuthContext';
 
 interface UseCartReturn {
   amount: number;
-  carts: Array<CartModel>;
+  carts: CartModel[];
 }
 
 const useCart = (): UseCartReturn => {
   const [carts, setCarts] = React.useState<CartModel[]>([]);
 
-  const amount = React.useMemo(() => carts.reduce((acc, cart) => acc + cart.products.length, 0), [carts]);
+  const { currentUser } = useAuth();
+
+  const amount = React.useMemo(
+    () => carts.reduce((acc, cart) => acc + cart.products.length, 0),
+    [carts, currentUser?.id]
+  );
 
   React.useEffect(() => {
     request
@@ -24,7 +30,7 @@ const useCart = (): UseCartReturn => {
         }
       })
       .catch((e) => console.log('error =>> ', e));
-  }, []);
+  }, [currentUser?.id]);
 
   return { carts, amount };
 };

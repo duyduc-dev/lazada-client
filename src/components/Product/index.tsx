@@ -46,7 +46,7 @@ const Product: React.FC<ProductProps> = (props) => {
             <p className="flex items-start gap-1 mt-2 font-bold text-blood_orange">
               {utils.formatMoney(
                 data?.productTypes?.[0].discount
-                  ? +(data?.productTypes?.[0].discount || 0) * +(firstProdType.price || 0)
+                  ? (firstProdType.price || 0) - +(data?.productTypes?.[0].discount || 0) * +(firstProdType.price || 0)
                   : firstProdType.price
               )}
               <span className="underline text-[12px]">đ</span>

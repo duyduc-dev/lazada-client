@@ -59,9 +59,7 @@ const Login = () => {
           <div className="flex justify-center ">
             <div className="w-[810px] ">
               <div className="flex items-center justify-between pt-9 pb-9">
-                <div className="text-title_arsenic text-[22px] font-[400]">
-                  Welcome to Lazada! Please login.
-                </div>
+                <div className="text-title_arsenic text-[22px] font-[400]">Welcome to Lazada! Please login.</div>
                 <div className="text-[12px] text-sonic_silver flex gap-1">
                   <div>New member?</div>
                   <Link href={routes.SIGN_UP} className="no-underline text-blue_green">
@@ -70,10 +68,7 @@ const Login = () => {
                   <div>here!</div>
                 </div>
               </div>
-              <form
-                onSubmit={handleSubmit}
-                className="flex justify-between p-[25px] w-[810px] border-box bg-white"
-              >
+              <form onSubmit={handleSubmit} className="flex justify-between p-[25px] w-[810px] border-box bg-white">
                 <div className="max-w-[380px] w-full">
                   <Input
                     label="Email*"

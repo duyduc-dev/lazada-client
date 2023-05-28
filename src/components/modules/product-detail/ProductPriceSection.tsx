@@ -13,7 +13,7 @@ const ProductPriceSection: React.FC<ProductPriceSectionProps> = (props) => {
   return (
     <div>
       <p className="flex items-start gap-1 mt-2 font-bold text-[30px] text-blood_orange">
-        {utils.formatMoney(discount ? +discount * +(price || 0) : price)}
+        {utils.formatMoney(discount ? price - +discount * +(price || 0) : price)}
         <span className="underline text-[12px]">đ</span>
       </p>
       <div>

@@ -21,6 +21,9 @@ import { useAuth } from '~/src/context/AuthContext';
 import { useRouter } from 'next/router';
 import { toast } from 'react-hot-toast';
 
+
+
+
 const signUpSchema = Yup.object().shape({
   fullName: Yup.string()
     .required("You can't leave this empty")

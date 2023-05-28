@@ -1,12 +1,22 @@
-import Head from 'next/head';
-import MainLayout from '~/src/components/layouts/MainLayout';
-import CarouselSection from '~/src/components/modules/home/CarouselSection';
-import CategoriesSuggestSection from '~/src/components/modules/home/CategoriesSuggestSection';
-import CategoriesTreeSection from '~/src/components/modules/home/CategoriesTreeSection';
-import ProductSection from '~/src/components/modules/home/ProductSection'
-
+import Head from "next/head";
+import { useEffect } from "react";
+import { selectCarts } from "~/src/components/Cart/store/cartSelect";
+import { fetchCart } from "~/src/components/Cart/store/cartThunk";
+import MainLayout from "~/src/components/layouts/MainLayout";
+import CarouselSection from "~/src/components/modules/home/CarouselSection";
+import CategoriesSuggestSection from "~/src/components/modules/home/CategoriesSuggestSection";
+import CategoriesTreeSection from "~/src/components/modules/home/CategoriesTreeSection";
+import ProductSection from "~/src/components/modules/home/ProductSection";
+import { useAppDispatch, useAppSelector } from "~/src/hooks/redux";
 
 export default function Home() {
+  const dispatch = useAppDispatch();
+  const cart = useAppSelector(selectCarts);
+
+  console.log("cart =>>>", cart);
+  useEffect(() => {
+    dispatch(fetchCart());
+  }, []);
   return (
     <>
       <Head>

@@ -12,11 +12,11 @@ export interface ProductModel {
 }
 
 export interface ProductTypeModel {
-  id?: string;
-  type?: string;
-  image?: string;
-  price?: number;
-  discount?: number;
+  id: string;
+  type: string;
+  image: string;
+  price: number;
+  discount: number;
 }
 
 export interface ProductSellerModel {

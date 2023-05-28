@@ -1,5 +1,5 @@
-import * as React from 'react';
-import Tippy, { TippyProps, useSingleton } from '@tippyjs/react/headless';
+import * as React from "react";
+import Tippy, { TippyProps } from "@tippyjs/react/headless";
 
 interface ClassesTooltip {
   container?: string;
@@ -11,11 +11,23 @@ interface TooltipProps extends TippyProps {
 }
 
 const Tooltip: React.FC<TooltipProps> = (props) => {
-  const { attributesContainer, visible, classes, children, interactive = true, ...rest } = props;
+  const {
+    attributesContainer,
+    visible,
+    classes,
+    children,
+    interactive = true,
+    ...rest
+  } = props;
 
   return (
     <div {...attributesContainer} className={classes?.container}>
-      <Tippy interactive={interactive} hideOnClick visible={visible} popperOptions={{ strategy: 'fixed' }} {...rest}>
+      <Tippy
+        interactive={interactive}
+        visible={visible}
+        popperOptions={{ strategy: "fixed" }}
+        {...rest}
+      >
         {children}
       </Tippy>
     </div>

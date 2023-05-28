@@ -1,10 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    './pages/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}',
-    './src/**/*.{js,ts,jsx,tsx}',
-  ],
+  content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}', './src/**/*.{js,ts,jsx,tsx}'],
   presets: [],
   darkMode: 'media', // or 'class'
   theme: {
@@ -183,7 +179,7 @@ module.exports = {
       raisin_black: '#212121',
       lotion: '#fafafa',
       gainsboro: '#dadada',
-      caribbean_green: '# ',
+      caribbean_green: '#11c296',
       water: '#d4f3eb',
       quick_silver: '#a0a0a0',
       nickel: '#727272',
@@ -192,8 +188,6 @@ module.exports = {
       yankees_blue: '#183544',
       platinum: '#e2e2e2',
       custom_orange: '#f59e0b',
-
-
     }),
     columns: {
       auto: 'auto',

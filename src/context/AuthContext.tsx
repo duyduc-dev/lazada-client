@@ -76,7 +76,7 @@ const AuthProvider = ({ children }: AuthProps) => {
       window.localStorage.removeItem('Auth-Token');
       saveAuth(undefined);
       saveUser(undefined);
-      router.push(routes.HOME);
+      router.push(routes.LOGIN);
     }, 2000);
   };
 

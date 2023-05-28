@@ -1,8 +1,9 @@
+import { ProductTypeModel } from './product';
+
 export interface CartRequest {
   productId: string;
-  sellerId: string;
   quantity: number;
-  typeId: number;
+  typeId: string;
 }
 
 export interface CartModel {
@@ -25,15 +26,7 @@ export interface ProductCartModel {
   title: string;
   image: string;
   quantity: number;
-  price: number;
-  type: Type;
+  finalPrice: number;
+  type: ProductTypeModel;
   slug: string;
-}
-
-interface Type {
-  id: string;
-  type: string;
-  image: string;
-  price: number;
-  discount: number;
 }

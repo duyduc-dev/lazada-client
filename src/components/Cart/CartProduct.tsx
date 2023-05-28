@@ -1,15 +1,19 @@
 import { useInput } from 'hooks-react-custom';
-import { ChangeEventHandler } from 'react';
+import { SetStateAction } from 'react';
 import { BsHeart, BsTrash } from 'react-icons/bs';
+
 import { ProductCartModel } from '~/src/interfaces/cart';
 import utils from '~/utils/AppUtils';
+import AppImage from '~/components/Image';
 
 interface CartProductProps {
   product: ProductCartModel;
+  selectProduct: React.Dispatch<SetStateAction<string[]>>;
 }
+
 function CartProduct(props: CartProductProps) {
-  const { product } = props;
-  const { eventBind, setValue, value } = useInput(1);
+  const { selectProduct, product } = props;
+  const { eventBind, setValue, value } = useInput(product.quantity || 1);
 
   const handleClickDecrementQuantity = () => {
     +value > 1 && setValue((a) => `${Number(a) - 1}`);
@@ -18,13 +22,23 @@ function CartProduct(props: CartProductProps) {
     setValue((a) => `${Number(a) + 1}`);
   };
 
+  const handleCheckBoxChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+    if (e.target.checked) {
+      selectProduct((i) => [...i, product.productId]);
+    }
+  };
+
   return (
     <div className="flex bg-white flex-nowrap py-[16px]  px-[16px]">
       <div className="pl-[10px]">
         <div className="flex mb-3">
-          <input className="mt-2 mr-[16px] scale-125 border-[12px] leading relative right-[13px]" type="checkbox" />
-          <div className="relative right-3">
-            <img className="max-w-[80px] mr-[10px]" src={product.image} alt="" />
+          <input
+            onChange={handleCheckBoxChange}
+            className="mt-2 mr-[16px] scale-125 border-[12px] leading relative right-[13px]"
+            type="checkbox"
+          />
+          <div className="relative">
+            <AppImage className="w-[80px] h-[80px]" source={product.image} />
           </div>
 
           <div className="ml-[20px] ">
@@ -34,7 +48,7 @@ function CartProduct(props: CartProductProps) {
         </div>
       </div>
       <div className="w-[156px] pl-4">
-        <p className="text-[18px] text-vivid_tangelo font-medium">{utils.formatMoney(product.price)}</p>
+        <p className="text-[18px] text-vivid_tangelo font-medium">{utils.formatMoney(product.finalPrice)}</p>
         <div className="mt-[10px] text-[spanish_gray] flex cursor-pointer">
           <div>
             <BsHeart />
