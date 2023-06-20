@@ -21,9 +21,7 @@ const CarouselSection: React.FC<CarouselSectionProps> = (props) => {
         onRenderItem={(item) => (
           <div className="relative w-full h-full">
             <Image
-              src={
-                'https://lzd-img-global.slatic.net/g/icms/images/ims-web/5c6c7ea9-a030-450d-942c-df80393fdc52.jpg_2200x2200q90.jpg_.webp'
-              }
+              src={'https://icms-image.slatic.net/images/ims-web/268f91b8-6488-46ec-9780-9a7a58cfdd94.jpg'}
               priority
               alt=""
               layout="fill"

@@ -63,7 +63,7 @@ const Header: React.FC<HeaderProps> = (props) => {
                 ) : (
                   <>
                     <Link className="hover:text-vivid_tangelo" href={routes.SELL_ON_LAZADA}>
-                      SELL ON LAZADA
+                      SELL ON LAZASHOP
                     </Link>
                     <Link className="hover:text-vivid_tangelo" href={routes.LOGIN}>
                       login
@@ -78,8 +78,8 @@ const Header: React.FC<HeaderProps> = (props) => {
           </div>
           <div className="">
             <div className="h-[75px] flex items-center max-w-screen-custom_lg mx-auto ">
-              <Link href={routes.HOME} className="relative w-[127px] h-[40px]">
-                <Image src={logoLazada.src} layout="fill" alt="" priority />
+              <Link href={routes.HOME} className="relative w-[127px] h-[40px] flex items-center">
+                <span className="text-[#1a1c74] text-[20px] font-bold tracking-widest">LAZASHOP</span>
               </Link>
               <div className="flex-1">
                 <div className="h-[45px]">
@@ -88,7 +88,7 @@ const Header: React.FC<HeaderProps> = (props) => {
                       type="text"
                       className="w-full h-full bg-transparent outline-none py-[13px] px-[19px] text-[14px]"
                       autoComplete="off"
-                      placeholder="Search in Lazada"
+                      placeholder="Search in Lazashop"
                     />
                     <div className="absolute top-0 bottom-0 right-0">
                       <button className="w-[45px] h-[45px] text-[22px]  text-white fill-white flex justify-center items-center font-[500]">

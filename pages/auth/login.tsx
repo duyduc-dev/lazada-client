@@ -52,14 +52,14 @@ const Login = () => {
   return (
     <>
       <Head>
-        <title>Login Lazada</title>
+        <title>Login Lazashop</title>
       </Head>
       <div>
         <div className="bg-anti_flash_white pb-20">
           <div className="flex justify-center ">
             <div className="w-[810px] ">
               <div className="flex items-center justify-between pt-9 pb-9">
-                <div className="text-title_arsenic text-[22px] font-[400]">Welcome to Lazada! Please login.</div>
+                <div className="text-title_arsenic text-[22px] font-[400]">Welcome to Lazashop! Please login.</div>
                 <div className="text-[12px] text-sonic_silver flex gap-1">
                   <div>New member?</div>
                   <Link href={routes.SIGN_UP} className="no-underline text-blue_green">

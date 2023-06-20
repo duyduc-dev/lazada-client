@@ -41,7 +41,7 @@ const Footer: React.FC<FooterProps> = (props) => {
             </ul>
           </div>
           <div className="pt-5">
-            <h4 className="text-dark_imperial_blue text-[16px] mb-2">LAZADA VIETNAM</h4>
+            <h4 className="text-dark_imperial_blue text-[16px] mb-2">LAZASHOP VIETNAM</h4>
             <ul className="text-[12px] text-dark_imperial_blue">
               <li>All Categories</li>
               <li>About Lazada</li>
@@ -55,15 +55,6 @@ const Footer: React.FC<FooterProps> = (props) => {
               <li>Operating Regulation</li>
               <li>Procedure of claim and dispute handlin</li>
             </ul>
-          </div>
-          <div className="flex items-center gap-3">
-            <div className="relative">
-              <Image src={logo.src} alt="" width={42} height={42} />
-            </div>
-            <div>
-              <p className="text-chinese_orange">Go where your heart beats</p>
-              <p className="text-[14px]">Download the App</p>
-            </div>
           </div>
           <div className="flex items-center gap-5">
             <div>
